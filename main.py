@@ -8,13 +8,16 @@ morse_code = {'A': '.-', 'B': '-...', 'C': '–.–.', 'D': '–..', 'E': '.', '
               'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-', 'U': '..-', 'V': '...-', 'W': '.--',
               'X': '-..-', 'Y': '-.-', 'Z': '--..', '0': '-----', '1': '.----', '2': '..---', '3': '...--',
               '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.',
-              '.': '.-', ',': '.-', '?': '.-', '"': '.-', '!': '.-', }
+              '.': '.-.-.-', ',': '--..--', '?': '..--..', '!': '-.-.--'}
 
-def convert_sentence(str):
+def convert_sentence(input_text):
 
     morse_sentence = ""
-    for word in str:
-        morse_sentence += morse_code[word.lower()]
+    for letter in input_text:
+        if letter.upper() in morse_code:
+            morse_sentence += morse_code[letter.upper()]
+        elif letter == " ":
+            morse_sentence += " "
 
     return morse_sentence
 
